@@ -15,8 +15,10 @@ termux_step_host_build() {
 	./configure --prefix=${TERMUX_PREFIX} --sbindir=${TERMUX_PREFIX}/bin $TERMUX_PKG_EXTRA_CONFIGURE_ARGS
 	make -j$(nproc)
 	cp build/tools/mconfig-gen "$TERMUX_PKG_SRCDIR"/build/tools
-	file src/dinit
 }
+
+termux_step_make_install() {
+	file src/dinit
 
 termux_step_post_make_install() {
 	mkdir -p ${TERMUX_PREFIX}/etc/profile.d/
