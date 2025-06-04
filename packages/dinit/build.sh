@@ -12,7 +12,7 @@ TERMUX_PKG_EXTRA_HOSTBUILD_CONFIGURE_ARGS="--disable-shutdown"
 
 termux_step_host_build() {
 	./configure --prefix=$(DESTDIR)$(PREFIX) --sbindir=$(DESTDIR)$(PREFIX)/bin --disable-shutdown
- 	make
+	make
 }
 
 termux_step_post_make_install() {
