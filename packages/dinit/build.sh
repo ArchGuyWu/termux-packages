@@ -11,6 +11,7 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-shutdown"
 
 termux_step_pre_configure() {
 	rm BUILD_MESON meson.build meson_options.txt
+}
 
 termux_step_post_make_install() {
 	mkdir -p $(DESTDIR)$(PREFIX)/etc/profile.d/
