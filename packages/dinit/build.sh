@@ -9,6 +9,7 @@ TERMUX_PKG_BUILD_DEPENDS="make, clang, m4, binutils-is-llvm, git"
 TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_HOSTBUILD=true
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-shutdown"
+TERMUX_PKG_EXTRA_MAKE_ARGS="STRIP=$TERMUX_ARCH-linux-android-strip"
 
 termux_step_host_build() {
 	cp -r "$TERMUX_PKG_SRCDIR"/* .
