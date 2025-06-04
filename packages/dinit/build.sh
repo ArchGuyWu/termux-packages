@@ -12,7 +12,7 @@ TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-shutdown"
 
 termux_step_host_build() {
 	cp -r "$TERMUX_PKG_SRCDIR"/* .
-	./configure --prefix=${TERMUX_PREFIX} --sbindir=${TERMUX_PREFIX}/bin --disable-shutdown
+	./configure --prefix=${TERMUX_PREFIX} --sbindir=${TERMUX_PREFIX}/bin $TERMUX_PKG_EXTRA_CONFIGURE_ARGS
 	make -j$(nproc)
 	cp build/tools/mconfig-gen "$TERMUX_PKG_SRCDIR"/build/tools
 }
