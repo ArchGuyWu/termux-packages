@@ -11,18 +11,18 @@ TERMUX_PKG_HOSTBUILD=true
 TERMUX_PKG_EXTRA_HOSTBUILD_CONFIGURE_ARGS="--disable-shutdown"
 
 termux_step_host_build() {
-	./configure --prefix=$(DESTDIR)$(PREFIX) --sbindir=$(DESTDIR)$(PREFIX)/bin --disable-shutdown
+	./configure --prefix=${TERMUX_PREFIX} --sbindir=${TERMUX_PREFIX}/bin --disable-shutdown
 	make
 }
 
 termux_step_post_make_install() {
-	mkdir -p $(DESTDIR)$(PREFIX)/etc/profile.d/
-	install $TERMUX_PKG_BUILDER_DIR/start-dinit.sh $(DESTDIR)$(PREFIX)/etc/profile.d
-	mkdir -p $(DESTDIR)$(PREFIX)/etc/dinit.d
-	install $TERMUX_PKG_BUILDER_DIR/boot $(DESTDIR)$(PREFIX)/etc/dinit.d
-	install $TERMUX_PKG_BUILDER_DIR/local.target $(DESTDIR)$(PREFIX)/etc/dinit.d
-	install $TERMUX_PKG_BUILDER_DIR/network.target $(DESTDIR)$(PREFIX)/etc/dinit.d
-	mkdir -p $(DESTDIR)$(PREFIX)/etc/dinit.d/service.d
+	mkdir -p ${TERMUX_PREFIX}/etc/profile.d/
+	install $TERMUX_PKG_BUILDER_DIR/start-dinit.sh ${TERMUX_PREFIX}/etc/profile.d
+	mkdir -p ${TERMUX_PREFIX}/etc/dinit.d
+	install $TERMUX_PKG_BUILDER_DIR/boot ${TERMUX_PREFIX}/etc/dinit.d
+	install $TERMUX_PKG_BUILDER_DIR/local.target ${TERMUX_PREFIX}/etc/dinit.d
+	install $TERMUX_PKG_BUILDER_DIR/network.target ${TERMUX_PREFIX}/etc/dinit.d
+	mkdir -p ${TERMUX_PREFIX}/etc/dinit.d/service.d
 }
 
 termux_step_create_debscripts() {
