@@ -9,9 +9,7 @@ TERMUX_PKG_BUILD_DEPENDS="make, clang, m4, binutils-is-llvm, git"
 TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-shutdown"
 
-termux_step_configure() {
-	./configure --prefix=$PREFIX --sbindir=$PREFIX/bin --disable-shutdown
-}
+termux_step_post_configure() {}
 
 termux_step_make() {
 	make -j$(nproc)
