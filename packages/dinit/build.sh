@@ -8,12 +8,13 @@ TERMUX_PKG_GIT_BRANCH=r${TERMUX_PKG_VERSION}
 TERMUX_PKG_BUILD_DEPENDS="make, clang, m4, binutils-is-llvm, git"
 TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_HOSTBUILD=true
-TERMUX_PKG_EXTRA_HOSTBUILD_CONFIGURE_ARGS="--disable-shutdown"
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-shutdown"
 
 termux_step_host_build() {
-	cd ../src
+	cp -r "$TERMUX_PKG_SRCDIR"/* .
 	./configure --prefix=${TERMUX_PREFIX} --sbindir=${TERMUX_PREFIX}/bin --disable-shutdown
 	make -j$(nproc)
+	cp build/tools/mconfig-gen "$TERMUX_PKG_SRCDIR"/build/tools
 }
 
 termux_step_post_make_install() {
