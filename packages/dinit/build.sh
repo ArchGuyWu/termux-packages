@@ -9,10 +9,6 @@ TERMUX_PKG_BUILD_DEPENDS="make, clang, m4, binutils-is-llvm, git"
 TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-shutdown"
 
-termux_step_pre_configure() {
-	rm BUILD_MESON meson.build meson_options.txt
-}
-
 termux_step_post_make_install() {
 	mkdir -p $(DESTDIR)$(PREFIX)/etc/profile.d/
 	install $TERMUX_PKG_BUILDER_DIR/start-dinit.sh $(DESTDIR)$(PREFIX)/etc/profile.d
@@ -21,6 +17,10 @@ termux_step_post_make_install() {
 	install $TERMUX_PKG_BUILDER_DIR/local.target $(DESTDIR)$(PREFIX)/etc/dinit.d
 	install $TERMUX_PKG_BUILDER_DIR/network.target $(DESTDIR)$(PREFIX)/etc/dinit.d
 	mkdir -p $(DESTDIR)$(PREFIX)/etc/dinit.d/service.d
+}
+
+termux_step_make() {
+	make -j$(nproc)
 }
 
 termux_step_create_debscripts() {
