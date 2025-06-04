@@ -9,14 +9,6 @@ TERMUX_PKG_BUILD_DEPENDS="make, clang, m4, binutils-is-llvm, git"
 TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-shutdown"
 
-termux_step_post_configure() {
-	test
-}
-
-termux_step_make() {
-	make -j$(nproc)
-}
-
 termux_step_post_make_install() {
 	mkdir -p $(DESTDIR)$(PREFIX)/etc/profile.d/
 	install $TERMUX_PKG_BUILDER_DIR/start-dinit.sh $(DESTDIR)$(PREFIX)/etc/profile.d
