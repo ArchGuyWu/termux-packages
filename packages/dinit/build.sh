@@ -9,6 +9,10 @@ TERMUX_PKG_BUILD_DEPENDS="make, clang, m4, binutils-is-llvm, git"
 TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-shutdown"
 
+termux_step_configure() {
+	./configure --prefix=$PREFIX --sbindir=$PREFIX/bin --disable-shutdown
+}
+
 termux_step_make() {
 	make -j$(nproc)
 }
@@ -26,7 +30,7 @@ termux_step_post_make_install() {
 termux_step_create_debscripts() {
 	{
 	echo "#!$TERMUX_PREFIX/bin/sh"
-	echo "echo \"Add 'dinitctl shutdown' in .bash_logout\""
+	echo "echo \"Adding 'dinitctl shutdown' in .bash_logout\""
 	echo "echo \"to shutdown services properly\""
 	echo "echo \"dinitctl shutdown\" >> \"\$HOME/.bash_logout\""
 	echo "exit 0"
