@@ -11,11 +11,9 @@ TERMUX_PKG_HOSTBUILD=true
 TERMUX_PKG_EXTRA_HOSTBUILD_CONFIGURE_ARGS="--disable-shutdown"
 
 termux_step_host_build() {
-	ls ../src
-	ls ../build
-	ls package
+	cd ../src
 	./configure --prefix=${TERMUX_PREFIX} --sbindir=${TERMUX_PREFIX}/bin --disable-shutdown
-	make
+	make -j$(nproc)
 }
 
 termux_step_post_make_install() {
