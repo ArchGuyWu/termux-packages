@@ -10,6 +10,7 @@ TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-shutdown"
 
 termux_step_post_configure() {
+	test
 }
 
 termux_step_make() {
