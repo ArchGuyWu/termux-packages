@@ -8,7 +8,7 @@ TERMUX_PKG_GIT_BRANCH=r${TERMUX_PKG_VERSION}
 TERMUX_PKG_BUILD_DEPENDS="make, clang, m4, binutils-is-llvm, git"
 TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_HOSTBUILD=true
-TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-shutdown"
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--disable-strip --disable-shutdown"
 
 termux_step_host_build() {
 	cp -r "$TERMUX_PKG_SRCDIR"/* .
