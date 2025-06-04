@@ -10,6 +10,11 @@ TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_HOSTBUILD=true
 TERMUX_PKG_EXTRA_HOSTBUILD_CONFIGURE_ARGS="--disable-shutdown"
 
+termux_step_host_build() {
+	./configure --prefix=$PREFIX --sbindir=$PREFIX/bin --disable-shutdown
+ 	make
+}
+
 termux_step_post_make_install() {
 	mkdir -p $(DESTDIR)$(PREFIX)/etc/profile.d/
 	install $TERMUX_PKG_BUILDER_DIR/start-dinit.sh $(DESTDIR)$(PREFIX)/etc/profile.d
