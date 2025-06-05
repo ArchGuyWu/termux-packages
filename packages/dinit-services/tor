@@ -1,6 +1,5 @@
 type = process
-command = $PREFIX/bin/tor $EXTRA_ARGS
-env-file = config/tor.env
+command = $PREFIX/bin/tor
 restart = on-failure
 smooth-recovery = yes
 depends-on: network.target
