@@ -1,0 +1,8 @@
+type = process
+command = $PREFIX/bin/bacula-fd
+restart = on-failure
+smooth-recovery = yes
+depends-on: network.target
+log-type = buffer
+
+@include-opt $PREFIX/etc/dinit.d/config/bacula-fd.override
