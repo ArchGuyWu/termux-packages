@@ -4,3 +4,5 @@ restart = on-failure
 smooth-recovery = yes
 depends-on: network.target
 log-type = buffer
+
+@include-opt $PREFIX/etc/dinit.d/config/sshd.override
