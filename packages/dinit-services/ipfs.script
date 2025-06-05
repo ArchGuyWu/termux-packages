@@ -1,5 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/sh
-if [ ! -d "${TERMUX_ANDROID_HOME}/.ipfs" ]
+if [ ! -d "${HOME}/.ipfs" ]
 then
   ipfs init --empty-repo
   ipfs config --json Swarm.EnableRelayHop false
