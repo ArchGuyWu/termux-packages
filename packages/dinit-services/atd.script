@@ -1,0 +1,3 @@
+#!$PREFIX/bin/sh
+mkdir -p $TERMUX_PREFIX/var/run
+exec atd -f
