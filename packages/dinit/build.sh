@@ -19,7 +19,7 @@ termux_step_host_build() {
 
 termux_step_pre_configure() {
 	echo $TERMUX_ARCH
-	sed -i '/^STRIPOPTS ?= -s$/ s/$/ --strip-program=$TERMUX_ARCH-linux-android-strip/' src/Makefile
+	sed -i '/^STRIPOPTS ?= -s$/ s/$/ --strip-program=$(TERMUX_ARCH)-linux-android-strip/' src/Makefile
 	cat src/Makefile
 }
 
