@@ -1,0 +1,6 @@
+type = process
+command = $PREFIX/bin/sshd -D -e
+restart = on-failure
+smooth-recovery = yes
+depends-on: network.target
+log-type = buffer
