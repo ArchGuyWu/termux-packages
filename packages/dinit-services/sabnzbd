@@ -1,0 +1,9 @@
+type = process
+command = $PREFIX/bin/sabnzbd -d $EXTRA_ARGS
+env-file = config/sabnzbd.env
+restart = on-failure
+smooth-recovery = yes
+depends-on: network.target
+log-type = buffer
+
+@include-opt $PREFIX/etc/dinit.d/config/sabnzbd.override
