@@ -23,6 +23,10 @@ termux_step_pre_configure() {
 	cat src/Makefile
 }
 
+termux_step_make_install() {
+	cd src
+	install -s --strip-program=$TERMUX_ARCH-linux-android-strip dinit dinitctl dinitcheck dinit-monitor ${TERMUX_PREFIX}/bin
+
 termux_step_post_make_install() {
 	mkdir -p ${TERMUX_PREFIX}/etc/profile.d/
 	install $TERMUX_PKG_BUILDER_DIR/start-dinit.sh ${TERMUX_PREFIX}/etc/profile.d
