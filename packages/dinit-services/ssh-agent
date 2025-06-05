@@ -1,5 +1,6 @@
 type = process
-command = $PREFIX/bin/ssh-agent -D -a $PREFIX/var/run/ssh-agent.socket
+command = $PREFIX/bin/ssh-agent -D -a $PREFIX/var/run/ssh-agent.socket $EXTRA_ARGS
+env-file = config/ssh-agent.env
 restart = on-failure
 smooth-recovery = yes
 depends-on: network.target
