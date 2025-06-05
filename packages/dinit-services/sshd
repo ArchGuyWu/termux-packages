@@ -1,5 +1,6 @@
 type = process
-command = $PREFIX/bin/sshd -D -e
+command = $PREFIX/bin/sshd -D -e $EXTRA_ARGS
+env-file = config/sshd.env
 restart = on-failure
 smooth-recovery = yes
 depends-on: network.target
