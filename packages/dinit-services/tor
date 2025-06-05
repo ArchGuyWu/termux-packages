@@ -1,0 +1,9 @@
+type = process
+command = $PREFIX/bin/tor $EXTRA_ARGS
+env-file = config/tor.env
+restart = on-failure
+smooth-recovery = yes
+depends-on: network.target
+log-type = buffer
+
+@include-opt $PREFIX/etc/dinit.d/config/tor.override
