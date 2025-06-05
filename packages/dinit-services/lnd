@@ -1,6 +1,5 @@
 type = process
-command = $PREFIX/bin/lnd $EXTRA_ARGS
-env-file = config/lnd.env
+command = $PREFIX/bin/lnd
 restart = on-failure
 smooth-recovery = yes
 depends-on: network.target
