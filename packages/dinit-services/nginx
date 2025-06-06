@@ -3,6 +3,7 @@ command = $PREFIX/lib/dinit/nginx
 restart = on-failure
 smooth-recovery = yes
 depends-on: network.target
-logfile = $PREFIX/var/log/dinit/nginx.log
+depends-ms: svlogd@nginx
+log-type = pipe
 
 @include-opt $PREFIX/etc/dinit.d/config/nginx.override
