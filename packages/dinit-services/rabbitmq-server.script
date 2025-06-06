@@ -1,9 +1,0 @@
-#!/data/data/com.termux/files/usr/bin/sh
-if [ -f "$HOME/.config/rabbitmq/rabbitmq.conf" ]
-then
-  CONFIG="$HOME/.config/rabbitmq/rabbitmq.conf"
-else
-  CONFIG="$PREFIX/etc/rabbitmq/rabbitmq.conf"
-fi
-
-exec rabbitmq-server $CONFIG
