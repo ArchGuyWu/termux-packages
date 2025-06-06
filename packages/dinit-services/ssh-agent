@@ -1,8 +1,9 @@
 type = process
-command = $PREFIX/bin/ssh-agent -D -a $PREFIX/var/run/ssh-agent.socket
+command = $PREFIX/bin/ssh-agent -D -a $SSH_AUTH_SOCK
+env-file = config/ssh-agent.env
 restart = on-failure
 smooth-recovery = yes
 depends-on: network.target
-log-type = buffer
+logfile = $PREFIX/var/log/dinit/ssh-agent.log
 
 @include-opt $PREFIX/etc/dinit.d/config/ssh-agent.override
