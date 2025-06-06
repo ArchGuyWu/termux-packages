@@ -4,6 +4,7 @@ env-file = config/ssh-agent.env
 restart = on-failure
 smooth-recovery = yes
 depends-on: network.target
-logfile = $PREFIX/var/log/dinit/ssh-agent.log
+depends-ms: svlogd@ssh-agent
+log-type = pipe
 
 @include-opt $PREFIX/etc/dinit.d/config/ssh-agent.override
