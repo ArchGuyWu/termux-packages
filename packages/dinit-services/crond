@@ -3,6 +3,7 @@ command = $PREFIX/bin/crond -n -s
 restart = on-failure
 smooth-recovery = yes
 depends-on: local.target
-logfile = $PREFIX/var/log/dinit/crond.log
+depends-ms: svlogd@crond
+log-type = pipe
 
 @include-opt $PREFIX/etc/dinit.d/config/crond.override
