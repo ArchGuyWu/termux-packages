@@ -1,8 +1,0 @@
-type = process
-command = $PREFIX/bin/sabnzbd -d
-restart = on-failure
-smooth-recovery = yes
-depends-on: network.target
-logfile = $PREFIX/var/log/dinit/sabnzbd.log
-
-@include-opt $PREFIX/etc/dinit.d/config/sabnzbd.override
