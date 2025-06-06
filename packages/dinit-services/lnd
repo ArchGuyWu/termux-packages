@@ -3,6 +3,6 @@ command = $PREFIX/bin/lnd
 restart = on-failure
 smooth-recovery = yes
 depends-on: network.target
-log-type = buffer
+logfile = $PREFIX/var/log/dinit/lnd.log
 
 @include-opt $PREFIX/etc/dinit.d/config/lnd.override
