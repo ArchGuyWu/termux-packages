@@ -3,6 +3,7 @@ command = $PREFIX/bin/sshd -D -e
 restart = on-failure
 smooth-recovery = yes
 depends-on: network.target
-logfile = $PREFIX/var/log/dinit/sshd.log
+depends-ms: svlogd@sshd
+log-type = pipe
 
 @include-opt $PREFIX/etc/dinit.d/config/sshd.override
