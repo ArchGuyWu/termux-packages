@@ -1,5 +1,6 @@
 type = process
-command = $PREFIX/lib/dinit/rabbitmq-server
+command = $PREFIX/bin/rabbitmq-server $RABBITMQ_CONFIG_FILE
+env-file = config/rabbitmq-server.env
 restart = on-failure
 smooth-recovery = yes
 depends-on: network.target
