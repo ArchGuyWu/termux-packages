@@ -1,0 +1,7 @@
+type = process
+command = $PREFIX/bin/svlogd $PREFIX/var/log/dinit/$1
+restart = on-failure
+smooth-recovery = yes
+consumer-of = $1
+
+@include-opt $PREFIX/etc/dinit.d/config/svlogd-nots.override
