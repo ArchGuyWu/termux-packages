@@ -1,8 +1,8 @@
 type = process
-command = $PREFIX/lib/dinit/atd
+command = $PREFIX/bin/atd -f
 restart = on-failure
 smooth-recovery = yes
 depends-on: local.target
-log-type = buffer
+logfile = $PREFIX/var/log/dinit/atd.log
 
 @include-opt $PREFIX/etc/dinit.d/config/atd.override
