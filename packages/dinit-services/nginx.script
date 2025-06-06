@@ -6,4 +6,4 @@ then
 else
   CONFIG="$PREFIX/etc/nginx/nginx.conf"
 
-exec nginx -p ~/.nginx -g "daemon off;" -c \$CONFIG
+exec nginx -p ~/.nginx -g "daemon off;" -c $CONFIG
