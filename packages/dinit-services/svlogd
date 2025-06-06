@@ -1,5 +1,5 @@
 type = process
-command = $PREFIX/bin/svlogd -tt $PREFIX/var/log/dinit/$1
+command = $PREFIX/bin/busybox svlogd -tt $PREFIX/var/log/dinit/$1
 restart = on-failure
 smooth-recovery = yes
 consumer-of = $1
