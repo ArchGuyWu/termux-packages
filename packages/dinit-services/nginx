@@ -3,6 +3,6 @@ command = $PREFIX/lib/dinit/nginx
 restart = on-failure
 smooth-recovery = yes
 depends-on: network.target
-log-type = buffer
+logfile = $PREFIX/var/log/dinit/nginx.log
 
 @include-opt $PREFIX/etc/dinit.d/config/nginx.override
