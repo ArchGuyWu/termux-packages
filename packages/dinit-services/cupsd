@@ -3,6 +3,7 @@ command = $PREFIX/lib/dinit/cupsd
 restart = on-failure
 smooth-recovery = yes
 depends-on: network.target
-logfile = $PREFIX/var/log/dinit/cupsd.log
+depends-ms: svlogd@cupsd
+log-type = pipe
 
 @include-opt $PREFIX/etc/dinit.d/config/cupsd.override
