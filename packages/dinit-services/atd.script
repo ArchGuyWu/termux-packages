@@ -1,3 +1,0 @@
-#!/data/data/com.termux/files/usr/bin/sh
-mkdir -p $PREFIX/var/run
-exec atd -f
