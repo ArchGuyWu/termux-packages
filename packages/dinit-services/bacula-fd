@@ -3,6 +3,6 @@ command = $PREFIX/bin/bacula-fd
 restart = on-failure
 smooth-recovery = yes
 depends-on: network.target
-log-type = buffer
+logfile = $PREFIX/var/log/dinit/bacula-fd.log
 
 @include-opt $PREFIX/etc/dinit.d/config/bacula-fd.override
