@@ -3,6 +3,6 @@ command = $PREFIX/bin/transmission-daemon -f
 restart = on-failure
 smooth-recovery = yes
 depends-on: network.target
-log-type = buffer
+logfile = $PREFIX/var/log/dinit/transmission.log
 
 @include-opt $PREFIX/etc/dinit.d/config/transmission.override
