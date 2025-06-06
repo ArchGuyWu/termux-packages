@@ -1,9 +1,0 @@
-#!/data/data/com.termux/files/usr/bin/sh
-if [ ! -d "${HOME}/.ipfs" ]
-then
-  ipfs init --empty-repo
-  ipfs config --json Swarm.EnableRelayHop false
-  ipfs config --json Swarm.EnableAutoRelay true
-fi
-
-exec ipfs daemon --enable-namesys-pubsub
