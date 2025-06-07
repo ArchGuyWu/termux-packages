@@ -25,6 +25,8 @@ termux_step_post_make_install() {
 	install -Dm600 "$TERMUX_PKG_BUILDER_DIR/boot" "$TERMUX_PREFIX/etc/dinit.d"
 	install -Dm600 "$TERMUX_PKG_BUILDER_DIR/local.target" "$TERMUX_PREFIX/etc/dinit.d"
 	install -Dm600 "$TERMUX_PKG_BUILDER_DIR/network.target" "$TERMUX_PREFIX/etc/dinit.d"
+	mkdir -p "$TERMUX_PREFIX/etc/dinit.d/user"
+	install -Dm600 "$TERMUX_PKG_BUILDER_DIR/boot.user" "$TERMUX_PREFIX/etc/dinit.d/user/boot"
 }
 
 termux_step_create_debscripts() {
@@ -34,10 +36,26 @@ termux_step_create_debscripts() {
 		"chmod 700 \"$TERMUX_PREFIX/etc/dinit.d/config\"" \
 		"mkdir -p \"$TERMUX_PREFIX/etc/dinit.d/service.d\"" \
 		"chmod 700 \"$TERMUX_PREFIX/etc/dinit.d/service.d\"" \
+		"mkdir -p \"$TERMUX_PREFIX/etc/dinit.d/user/config\"" \
+		"chmod 700 \"$TERMUX_PREFIX/etc/dinit.d/user/config\"" \
+		"mkdir -p \"$TERMUX_PREFIX/etc/dinit.d/user/service.d\"" \
+		"chmod 700 \"$TERMUX_PREFIX/etc/dinit.d/user/service.d\"" \
 		"mkdir -p \"$TERMUX_PREFIX/lib/dinit\"" \
 		"chmod 700 \"$TERMUX_PREFIX/lib/dinit\"" \
+		"mkdir -p \"$TERMUX_PREFIX/lib/dinit/pre\"" \
+		"chmod 700 \"$TERMUX_PREFIX/lib/dinit/pre\"" \
+		"mkdir -p \"$TERMUX_PREFIX/lib/dinit/stop\"" \
+		"chmod 700 \"$TERMUX_PREFIX/lib/dinit/stop\"" \
+		"mkdir -p \"$TERMUX_PREFIX/lib/dinit/user\"" \
+		"chmod 700 \"$TERMUX_PREFIX/lib/dinit/user\"" \
+		"mkdir -p \"$TERMUX_PREFIX/lib/dinit/user/pre\"" \
+		"chmod 700 \"$TERMUX_PREFIX/lib/dinit/user/pre\"" \
+		"mkdir -p \"$TERMUX_PREFIX/lib/dinit/user/stop\"" \
+		"chmod 700 \"$TERMUX_PREFIX/lib/dinit/user/stop\"" \
 		"mkdir -p \"$TERMUX_PREFIX/var/log/dinit\"" \
 		"chmod 700 \"$TERMUX_PREFIX/var/log/dinit\"" \
+  		"mkdir -p \"$TERMUX_PREFIX/var/log/dinit/user\"" \
+		"chmod 700 \"$TERMUX_PREFIX/var/log/dinit/user\"" \
 		"echo \"To ensure services shutdown correctly, \"" \
 		"echo \"please add 'dinitctl shutdown' to a file like '~/.bash_logout'\"" \
 		"echo \"that executes when your login shell exits.\"" \
