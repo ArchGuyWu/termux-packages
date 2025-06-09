@@ -2,6 +2,7 @@ type = process
 command = $PREFIX/bin/busybox svlogd -tt $PREFIX/var/log/dinit/$1
 restart = on-failure
 smooth-recovery = yes
+after: local.target
 consumer-of = $1
 
-@include-opt $PREFIX/etc/dinit.d/config/svlogd.override
+@include-opt $PREFIX/etc/dinit.d/config/svlogd@$1.override
